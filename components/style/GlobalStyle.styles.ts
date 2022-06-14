@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import fonts from './Fonts.style';
-import variables from './Variables.styles';
+import { createGlobalStyle } from "styled-components";
+import fonts from "./Fonts.style";
+import variables from "./Variables.styles";
 
 export const GlobalStyle = createGlobalStyle`
   ${fonts};
@@ -33,7 +33,7 @@ img{
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
-  background-color: var( --background-light2);
+  background: var( --background-gradient);
  }
 
 p,
