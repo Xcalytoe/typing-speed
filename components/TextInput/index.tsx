@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { useTextInput } from "../../helper/client-store/data.store";
 import { TextInputStyled } from "./style";
 
 const TextInput = () => {
-  const handleKeyDown = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
-    if (target?.value?.endsWith(" ")) {
-      console.log("kkkkkk");
+  const [inputText, setInputText] = useState("");
+  const handleKeyDown = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputText(e?.target?.value);
+    // check when user clicks space
+    if (e?.target?.value?.endsWith(" ")) {
+      setTextInput(inputText); // set word to global state
+      setTimeout(() => setInputText("")); // clear input
     }
-    console.log("kkkkkk");
   };
+
+  const setTextInput = useTextInput(({ setTextInput }) => setTextInput);
   return (
     <TextInputStyled>
-      <input type="text" placeholder="Start typing" onChange={handleKeyDown} />
+      <input
+        type="text"
+        value={inputText}
+        placeholder="Enter word "
+        onChange={handleKeyDown}
+      />
+      <span></span>
     </TextInputStyled>
   );
 };

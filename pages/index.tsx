@@ -8,6 +8,7 @@ import TextInput from "../components/TextInput";
 import TimeControl from "../components/TimeControl";
 import TimeCountDown from "../components/TimeCountDown";
 import WordCloud from "../components/WordCloud";
+import { usePoints } from "../helper/client-store/data.store";
 
 const Home: NextPage = () => {
   const [activeModal, setActiveModal] = useState(false);
@@ -20,6 +21,8 @@ const Home: NextPage = () => {
     setCountActive(true); // start counter
     // !countActive && setCountActive(true); // start counter
   };
+
+  const points = usePoints(({ points }) => points);
 
   return (
     <>
@@ -48,7 +51,8 @@ const Home: NextPage = () => {
             <footer>
               <>
                 <TimeCountDown countActive={countActive} />
-                Points:0
+                Points: {points}
+                {console.log(points, "poiiii")}
               </>
               {!countActive ? (
                 <button onClick={handleStartClick}>Start</button>

@@ -1,5 +1,5 @@
 import create from "zustand";
-import { ITimeControl, IWordCloud } from "../Typeface";
+import { IPoints, ITextInput, ITimeControl, IWordCloud } from "../Typeface";
 
 export const useParagraph = create<IWordCloud>((set) => ({
   paragraph: "",
@@ -18,5 +18,19 @@ export const useTimer = create<ITimeControl>((set) => ({
     set((state) => ({
       ...state,
       timer: timer,
+    })),
+}));
+
+export const usePoints = create<IPoints>((set) => ({
+  points: 0,
+  setPoints: () => set((state) => ({ points: state.points + 1 })),
+}));
+
+export const useTextInput = create<ITextInput>((set) => ({
+  textInput: "",
+
+  setTextInput: (textInput) =>
+    set(() => ({
+      textInput: textInput,
     })),
 }));
