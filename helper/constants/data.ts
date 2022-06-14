@@ -4,7 +4,7 @@ export const paragraphData = [
    nemo praesentium eaque nostrum asperiores eius quo minima voluptatem
    mollitia eveniet.`,
 
-  `Metus metus sollicitudin turpis facilisi a sem fermentum tristique a quam lectus nulla ultrices lorem venenatis fusce fringilla. In, mauris. Nunc. Platea class tortor integer. Posuere id magna massa metus, risus.
+  `Metus sollicitudin turpis facilisi a sem fermentum tristique a quam lectus nulla ultrices lorem venenatis fusce fringilla. In, mauris. Nunc. Platea class tortor integer. Posuere id magna massa metus, risus.
    Aptent dui faucibus purus. Viverra. Sociosqu habitasse leo ad dapibus, nascetur non risus. Curabitur urna placerat praesent cum class odio ornare ad nascetur blandit. Erat.
    `,
 

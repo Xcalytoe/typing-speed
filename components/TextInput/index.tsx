@@ -22,7 +22,6 @@ const TextInput = () => {
         placeholder="Enter word "
         onChange={handleKeyDown}
       />
-      <span></span>
     </TextInputStyled>
   );
 };

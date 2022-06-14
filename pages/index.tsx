@@ -46,13 +46,12 @@ const Home: NextPage = () => {
               )}
             </header>
             <section>
-              <WordCloud />
+              <WordCloud countActive={countActive} />
             </section>
             <footer>
               <>
                 <TimeCountDown countActive={countActive} />
                 Points: {points}
-                {console.log(points, "poiiii")}
               </>
               {!countActive ? (
                 <button onClick={handleStartClick}>Start</button>
