@@ -8,7 +8,6 @@ import TextInput from "../components/TextInput";
 import TimeControl from "../components/TimeControl";
 import TimeCountDown from "../components/TimeCountDown";
 import WordCloud from "../components/WordCloud";
-import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [activeModal, setActiveModal] = useState(false);
@@ -16,6 +15,12 @@ const Home: NextPage = () => {
   const handleModal = () => {
     setActiveModal(!activeModal);
   };
+
+  const handleStartClick = () => {
+    setCountActive(true); // start counter
+    // !countActive && setCountActive(true); // start counter
+  };
+
   return (
     <>
       <Head>
@@ -41,8 +46,15 @@ const Home: NextPage = () => {
               <WordCloud />
             </section>
             <footer>
-              <TimeCountDown />
-              <button onClick={() => setCountActive(true)}>Start</button>
+              <>
+                <TimeCountDown countActive={countActive} />
+                Points:0
+              </>
+              {!countActive ? (
+                <button onClick={handleStartClick}>Start</button>
+              ) : (
+                <span></span>
+              )}
             </footer>
           </div>
         </main>

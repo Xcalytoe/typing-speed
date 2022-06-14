@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import { useTimer } from "../../helper/client-store/data.store";
 import { TimeControlStyled } from "./style";
 
 const TimeControl = () => {
-  const [time, setTime] = useState(60);
   const handleOnChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     const value = +target.value;
     const val = value * 60;
-    setTime(val);
+    value > 0 && setTimer(val); // store selected time in state
   };
-  console.log(time);
+  // timer on global state
+  const setTimer = useTimer(({ setTimer }) => setTimer);
+  const timer = useTimer(({ timer }) => timer);
+
   return (
     <TimeControlStyled>
       <label>
@@ -16,7 +19,7 @@ const TimeControl = () => {
           type="radio"
           name="time"
           value={1}
-          checked={time === 60}
+          checked={timer === 60}
           onChange={handleOnChange}
         />
         &nbsp;1m
@@ -27,7 +30,7 @@ const TimeControl = () => {
           name="time"
           value={2}
           onChange={handleOnChange}
-          checked={time === 120}
+          checked={timer === 120}
         />
         &nbsp;2m
       </label>
@@ -37,7 +40,7 @@ const TimeControl = () => {
           name="time"
           value={5}
           onChange={handleOnChange}
-          checked={time === 3000}
+          checked={timer === 300}
         />
         &nbsp;5m
       </label>
